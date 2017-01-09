@@ -2,7 +2,6 @@
 
 Copies a markdown link to the GitHub issue you're currently viewing in the form of `[issue title](issue URL)`.
 
-
 ## Usage
 
 1. Visit [ben.balter.com/copy-issue-link-bookmarklet/](http://ben.balter.com/copy-issue-link-bookmarklet/)
@@ -17,3 +16,7 @@ I'd love your help making the script better. The source lives in `src` and the b
 2. `npm install`
 3. Make your changes
 4. `script/build`
+
+## Development status
+
+It works for me. It may not work in your browser of choice, and may break at any time if GitHub's markup changes.
