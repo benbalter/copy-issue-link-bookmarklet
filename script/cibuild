@@ -1,0 +1,3 @@
+script/build
+
+git diff-index --quiet --cached HEAD
