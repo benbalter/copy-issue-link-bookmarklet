@@ -2,7 +2,7 @@
 
 rm -f index.html
 
-template=`cat src/index.html`
+template=`cat src/index.md`
 script=`cat dist/bookmark.js`
 
-echo "${template/_SRC_/$script}" >> index.html
+echo "${template/_SRC_/$script}" >> index.md
