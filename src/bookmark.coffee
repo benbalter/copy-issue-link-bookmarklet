@@ -1,5 +1,5 @@
 textArea = document.createElement('textarea')
-title = document.getElementsByTagName('h1')[1].children[0].textContent.trim()
+title = document.querySelector("h1.gh-header-title").children[0].textContent.trim()
 url = window.location.href
 textArea.value = "[#{title}](#{url})"
 document.body.appendChild textArea
