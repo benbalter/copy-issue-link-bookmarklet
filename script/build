@@ -2,6 +2,6 @@
 
 set -e
 
-grunt build
+npm run build
 
 script/build-page

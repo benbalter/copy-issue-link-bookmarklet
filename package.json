@@ -4,7 +4,10 @@
   "description": "Copies a markdown link to the issue your viewing",
   "main": "dist/bookmark.js",
   "scripts": {
-    "test": "script/cibuild"
+    "build": "babel src/bookmark.ts --out-file dist/bookmark.js && npm run minify",
+    "minify": "uglifyjs dist/bookmark.js --compress --mangle toplevel=true --output dist/bookmark.js",
+    "test": "tsc && eslint ./src --ext .js,.jsx,.ts,.tsx",
+    "fix": "eslint ./src --fix --ext .js,.jsx,.ts,.tsx"
   },
   "repository": {
     "type": "git",
@@ -15,12 +18,22 @@
   "bugs": {
     "url": "https://github.com/benbalter/copy-issue-link-bookmarklet/issues"
   },
-  "dependencies": {
-    "coffee-script": "~1.9.1",
-    "grunt": "~0.4.5",
-    "grunt-contrib-coffee": "~0.13.0",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-contrib-uglify": "~0.8.0",
-    "grunt-cli": "~0.1.13"
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.10.5",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-transform-typescript": "^7.11.0",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@typescript-eslint/eslint-plugin": "^3.7.0",
+    "@typescript-eslint/parser": "^3.7.0",
+    "babel-loader": "^8.1.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^7.5.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "ts-loader": "^8.0.1",
+    "typescript": "^3.9.7",
+    "uglify-js": "^3.10.3"
   }
 }
