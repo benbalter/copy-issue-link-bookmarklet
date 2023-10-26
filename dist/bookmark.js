@@ -1,1 +1,1 @@
-"use strict";var e,t=document.createElement("textarea"),c=document.querySelector("h1.gh-header-title"),n=window.location.href;c&&c.children[0]&&c.children[0].textContent&&(e=c.children[0].textContent.trim(),t.value="[".concat(e,"](").concat(n,")"),document.body.appendChild(t),t.select(),document.execCommand("copy"),t.remove());
+"use strict";var t,e=document.querySelector("h1.gh-header-title"),n=window.location.href;e&&e.children[0]&&e.children[0].textContent&&(t=e.children[0].textContent.trim(),navigator.clipboard.writeText("[".concat(t,"](").concat(n,")")));
