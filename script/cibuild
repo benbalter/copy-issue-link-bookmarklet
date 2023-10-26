@@ -1,3 +1,5 @@
-script/build
+#!/bin/sh
+
+npm run test
 
 git diff-index --quiet --cached HEAD
