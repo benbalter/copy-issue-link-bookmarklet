@@ -11,9 +11,5 @@ if (titleDiv && titleDiv.children[0] && titleDiv.children[0].textContent) {
 }
 
 if (Boolean(title)) {
-  textArea.value = `[${title}](${url})`;
-  document.body.appendChild(textArea);
-  textArea.select();
-  document.execCommand("copy");
-  textArea.remove();
+ navigator.clipboard.writeText(`[${title}](${url})`);
 }
