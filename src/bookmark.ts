@@ -1,4 +1,3 @@
-const textArea = document.createElement("textarea");
 const titleDiv = document.querySelector("h1.gh-header-title");
 const titleHeader = document.querySelector("div[aria-label=Header] h2");
 const u = new URL(location.href)
