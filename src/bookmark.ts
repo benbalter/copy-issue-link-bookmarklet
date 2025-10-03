@@ -1,15 +1,12 @@
-const textArea = document.createElement("textarea");
-const titleDiv = document.querySelector("h1.gh-header-title");
-const titleHeader = document.querySelector("div[aria-label=Header] h1");
-const url = window.location.href;
-let title = "";
-
-if (titleDiv && titleDiv.children[0] && titleDiv.children[0].textContent) {
-  title = titleDiv.children[0].textContent.trim();
-} else if (titleHeader && titleHeader.children[0] && titleHeader.children[0].textContent) {
-  title = titleHeader.children[0].textContent.trim();
-}
-
-if (Boolean(title)) {
- navigator.clipboard.writeText(`[${title}](${url})`);
-}
+(() => {
+  const pick = (s: string) => document.querySelector(s)?.textContent?.trim()
+  // PRs have h1, Issues have h2
+  const title = pick("h1.gh-header-title bdi") || pick("div[aria-label=Header] h2 bdi")
+  if (!title) return
+  const u = new URL(location.href)
+  u.search = ''
+  let suffix = "";
+  const [, kind] = u.hash.match(/^#([a-zA-Z]+)[-_]/) || [];
+  if (kind) suffix = ` (${kind})`;
+  navigator.clipboard.writeText(`[${title}${suffix}](${u.toString()})`)
+})()
