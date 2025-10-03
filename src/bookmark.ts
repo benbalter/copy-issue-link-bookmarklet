@@ -1,7 +1,9 @@
 const textArea = document.createElement("textarea");
 const titleDiv = document.querySelector("h1.gh-header-title");
 const titleHeader = document.querySelector("div[aria-label=Header] h2");
-const url = window.location.href;
+const u = new URL(location.href)
+u.hash = ''
+u.search = ''
 let title = "";
 
 if (titleDiv && titleDiv.children[0] && titleDiv.children[0].textContent) {
@@ -11,5 +13,5 @@ if (titleDiv && titleDiv.children[0] && titleDiv.children[0].textContent) {
 }
 
 if (Boolean(title)) {
- navigator.clipboard.writeText(`[${title}](${url})`);
+ navigator.clipboard.writeText(`[${title}](${u.toString()})`);
 }
