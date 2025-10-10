@@ -1,7 +1,7 @@
 (() => {
   const pick = (s: string) => document.querySelector(s)?.textContent?.trim()
-  // PRs have h1, Issues have h2
-  const title = pick("h1.gh-header-title bdi") || pick("div[aria-label=Header] h2 bdi")
+  // PRs and Issues have different header structure
+  const title = pick("h1.gh-header-title bdi") || pick("div[aria-label=Header] h1 bdi")
   if (!title) return
   const u = new URL(location.href)
   u.search = ''
