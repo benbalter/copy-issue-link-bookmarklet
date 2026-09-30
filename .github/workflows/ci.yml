@@ -23,6 +23,14 @@ jobs:
       - name: Type check and lint
         run: npm test
       - name: Build bookmarklet
-        run: npm run build
+        run: |
+          rm -rf dist
+          npm run build
       - name: Verify bookmarklet output
         run: test -s dist/bookmark.js
+      - name: Verify committed dist is up to date
+        run: git diff --exit-code dist/
+      - name: Verify published page is up to date
+        run: |
+          script/build-page
+          git diff --exit-code index.md

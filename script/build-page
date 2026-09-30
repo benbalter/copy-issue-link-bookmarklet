@@ -1,8 +1,12 @@
 #!/bin/sh
 
-rm -f index.html
+set -e
 
-template=`cat src/index.md`
-script=`cat dist/bookmark.js`
-
-echo "${template/_SRC_/$script}" > index.md
+# Embed the built bookmarklet into the published page. Uses node rather
+# than shell substitution so it behaves the same under dash and bash.
+node -e '
+const fs = require("fs");
+const template = fs.readFileSync("src/index.md", "utf8");
+const script = fs.readFileSync("dist/bookmark.js", "utf8").trim();
+fs.writeFileSync("index.md", template.replace("_SRC_", () => script));
+'
