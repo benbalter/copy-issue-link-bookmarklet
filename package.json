@@ -32,7 +32,7 @@
     "eslint": "^7.5.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.0",
-    "ts-loader": "^8.0.1",
+    "ts-loader": "^9.0.0",
     "typescript": "^3.9.7",
     "uglify-js": "^3.10.3"
   }
