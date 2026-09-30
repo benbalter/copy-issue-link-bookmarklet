@@ -8,5 +8,9 @@ node -e '
 const fs = require("fs");
 const template = fs.readFileSync("src/index.md", "utf8");
 const script = fs.readFileSync("dist/bookmark.js", "utf8").trim();
-fs.writeFileSync("index.md", template.replace("_SRC_", () => script));
+// The script is inlined into a single-quoted javascript: href. Percent-encode
+// the characters that would end the attribute, start an HTML entity, or be
+// read as a URL escape; the browser decodes them before running the script.
+const href = script.replace(/[%\x27"&<>]/g, (c) => "%" + c.charCodeAt(0).toString(16).toUpperCase());
+fs.writeFileSync("index.md", template.replace("_SRC_", () => href));
 '
