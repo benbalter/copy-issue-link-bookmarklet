@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
-    //"rootDir": "src",
-    "outDir": "dist",
+    "rootDir": "src",
+    "noEmit": true,
     "typeRoots": ["node_modules/@types"],
     "types": [],
     "lib": ["dom", "es2017"],
     "strict": true,
   },
+  "include": ["src"],
 }
